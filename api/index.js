@@ -1,8 +1,19 @@
-import express from 'express';
-const port = process.env.PORT || 3000
-const app = express()
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
+
+// connect to database:
+mongoose.connect(process.env.MONGODB_URL).then(()=>{
+    console.log('connected to database');
+}).catch((err)=>{
+    console.log(err);
+});
+const app = express();
 // listen to run the server:
-app.listen(port , ()=>{
-    console.log(`server is running on port ${port}`)
-})
+app.listen(3000, () => {
+  console.log('server is running on port 3000');
+});
+
+
