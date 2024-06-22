@@ -11,9 +11,11 @@ mongoose.connect(process.env.MONGODB_URL).then(()=>{
     console.log(err);
 });
 const app = express();
+app.use(express.json())
 // listen to run the server:
 app.listen(3000, () => {
   console.log('server is running on port 3000');
 });
+
 
 
